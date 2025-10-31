@@ -1,0 +1,7 @@
+<div [ngClass]="mode"  >
+  <h1>Welcome to the {{title}}</h1>
+  <app-greeting name="Matt" [age]="21"></app-greeting>
+  <app-song-list></app-song-list>
+</div>
+
+<button (click)="switchMode()">Switch to {{mode === 'light-mode' ? 'dark' : 'light'}} mode</button>

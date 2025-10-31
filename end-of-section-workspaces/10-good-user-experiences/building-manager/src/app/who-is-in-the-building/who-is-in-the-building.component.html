@@ -1,0 +1,16 @@
+<h2 *ngIf="selectedBuilding"  >People in {{ selectedBuilding }} right now</h2>
+<app-spinner *ngIf="isLoading"></app-spinner>
+<table *ngIf="selectedBuilding && !isLoading">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Time of entry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of accessLogs()">
+      <td>{{ record.user.firstname }} {{ record.user.surname }}</td>
+      <td>{{ record.time }}</td>
+    </tr>
+  </tbody>
+</table>

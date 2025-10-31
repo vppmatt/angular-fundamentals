@@ -1,0 +1,3 @@
+<ul [ngStyle]="ulStyle">
+    <app-song *ngFor="let song of dataService.getSongs()" [song]="song" ></app-song>
+</ul>

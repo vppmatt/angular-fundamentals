@@ -1,0 +1,20 @@
+<h2>Select the building to edit</h2>
+<ul>
+    <li *ngFor="let building of buildings()">
+        {{ building.name }} <button (click)="handleClick(building.id)"  >edit</button>
+    </li>
+</ul>
+
+<form *ngIf="selectedBuildingId" [formGroup]="editForm" (submit)="onSubmit()">
+    
+    <input type="hidden" id="id" name="id" formControlName="id" />
+
+    <label>
+        Name:
+        <input id="name" name="name" formControlName="name"/>
+    </label>
+    
+    <button>Save Changes</button>
+
+</form>
+<app-spinner *ngIf="saving"></app-spinner>

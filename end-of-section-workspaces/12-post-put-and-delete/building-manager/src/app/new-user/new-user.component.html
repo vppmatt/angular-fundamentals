@@ -1,0 +1,15 @@
+<h2>New User</h2>
+
+<app-spinner *ngIf="saving"></app-spinner>
+
+<form (submit)="onSubmit()">
+    <label for="firstname">First name:</label>
+    <input id="firstname" name="firstname" type="text" [(ngModel)]="firstname" required />
+
+    <label for="surname">Surname:</label>
+    <input id="surname" name="surname" type="text" [(ngModel)]="surname" required />
+
+    <button type="submit">Add User</button> 
+</form>
+
+<p *ngIf="message">{{ message }}</p>

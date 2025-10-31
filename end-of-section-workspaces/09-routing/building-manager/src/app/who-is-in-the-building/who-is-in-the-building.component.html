@@ -1,0 +1,16 @@
+<h2>People in {{ selectedBuilding }} right now</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Time of entry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of accessLogs()">
+      <td>{{ record.user.firstname }} {{ record.user.surname }}</td>
+      <td>{{ record.time }}</td>
+    </tr>
+  </tbody>
+</table>
