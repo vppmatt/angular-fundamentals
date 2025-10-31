@@ -2,11 +2,11 @@
 
 ## Intro
 
-In this lab we will see what basic Angular applicaiton looks like in the browser. 
+In this lab we will see what basic Angular application looks like in the browser. 
 
 ## Pre-requisites
 
-Before starting this lab, **you should have created an Angular  applicaiton** by running the command
+Before starting this lab, **you should have created an Angular  application** by running the command
 
 ```ng new hello-world``` 
 
@@ -18,7 +18,7 @@ and selecting the following options:
 
 ## 1. Start the Angular development webserver
 
-When we create a new Angular applicaiton, we get a full application with some dummy content ready to edit. We will explore the code files that have been created in a later exercise.
+When we create a new Angular application, we get a full application with some dummy content ready to edit. We will explore the code files that have been created in a later exercise.
 
 To be able to see the website in the browser we need a webserver - this is because the code files need to be **transpiled** before we can see the generated content. The transpiling process converts the code files into plain javascript that the browser can execute.
 

@@ -15,7 +15,7 @@ We will also create an event emitter to allow a  child component to trigger code
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 export interface SongInterface {
     id : number
     title: string
@@ -36,7 +36,7 @@ export interface SongInterface {
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 export class SongListComponent {
 
   song1 : SongInterface = {id: 1, title:"Billie Jean", artist: "Michael Jackson", dateReleased: new Date(1983,1,2), price: 10.99, votes:0};
@@ -63,7 +63,7 @@ export class SongListComponent {
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   @Output()
   voteUp = new EventEmitter<number>();
 ```
@@ -76,7 +76,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   clickVoteUp() {
     this.voteUp.emit(this.song.id);
   }
@@ -92,7 +92,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <li> 
     ID: {{song.id}}  TITLE: {{song.title}}  ARTIST: {{song.artist}} VOTES: {{song.votes}}  <button (click)="clickVoteUp()">vote</button>
 </li>
@@ -106,7 +106,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <ul>
     <app-song [song]="song1" (voteUp)="vote($event)"></app-song>
     <app-song [song]="song2" (voteUp)="vote($event)"></app-song>

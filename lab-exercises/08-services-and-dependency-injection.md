@@ -1,4 +1,4 @@
-# Lab 8 - services and dependency injection
+# Lab 8 - Services and Dependency Injection
 
 ## Intro
 
@@ -9,9 +9,9 @@ In this lab we will create a service and inject it into 2 separate components. T
 
 1. Create a new service to store the data being used in our application with 
 
-```
+`
 ng g s data
-```
+`
 
 2. Move the array of songs from the song-list component into the data service. Make it private so that it cannot be accessed directly.
 
@@ -29,7 +29,7 @@ Call the emit event in the method that records a change to the votes.
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 import { EventEmitter, Injectable } from '@angular/core';
 import { SongInterface } from './data/SongInterface';
 
@@ -80,7 +80,7 @@ export class DataService {
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   constructor(public dataService: DataService) {
    
   }
@@ -94,7 +94,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <ul [ngStyle]="ulStyle">
     <app-song *ngFor="let song of dataService.getSongs()" [song]="song" (voteUp)="vote($event)" ></app-song>
 </ul>
@@ -108,7 +108,7 @@ Click here to see the sample solution
 The song-list component should now look like this
 </summary>
 
-```
+```typescript
 import { Component, ViewChild, ViewChildren } from '@angular/core';
 import { SongComponent } from '../song/song.component';
 import { NgFor, NgStyle } from '@angular/common';
@@ -134,7 +134,7 @@ export class SongListComponent {
 }
 ```
 
-```
+```html
 <ul [ngStyle]="ulStyle">
     <app-song *ngFor="let song of dataService.getSongs()" [song]="song" ></app-song>
 </ul>
@@ -156,7 +156,7 @@ export class SongListComponent {
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 import { Component, Input, OnInit} from '@angular/core';
 import { CurrencyPipe, DatePipe, NgIf, NgStyle } from '@angular/common';
 import { SongInterface } from '../data/SongInterface';

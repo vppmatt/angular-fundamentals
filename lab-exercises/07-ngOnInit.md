@@ -1,4 +1,4 @@
-# Lab 7 - ngOnInit
+# Lab 7 - Component Lifecycles
 
 ## Intro
 
@@ -13,7 +13,7 @@ In this lab we will execute code when a component loads using its ngOnInit funct
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 export class AppComponent implements OnInit {
   
   ngOnInit() {
@@ -32,7 +32,7 @@ Hint you can load / save to local storage with `localStorage.getItem` and `local
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   ngOnInit() {
     const savedMode = localStorage.getItem('mode');
     if (savedMode) {
@@ -49,7 +49,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   switchMode() {
     this.mode = this.mode === 'light-mode' ? 'dark-mode' : 'light-mode';
     localStorage.setItem('mode', this.mode);

@@ -13,7 +13,7 @@ In this lab we will start to implement a "who is in the building right now?" fea
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   export const environment = {
     serverUrl: 'http://localhost:8080',
 };
@@ -27,7 +27,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   import { environment } from '../environments/environment';
   
   ...
@@ -43,14 +43,14 @@ Click here to see the sample solution
 
 ## 2. Implement the “who is in the building right now” feature
 
-1. Create an Interface to represent the data type received from the server when you call the /api/logs/{date} endpoint. You can store the time field as a string.
+1. Create an Interface to represent the data type received from the server when you call the `/api/logs/{date}` endpoint. You can store the time field as a string.
 
 <details>
 <summary>
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 import { Building } from "./Building";
 
 export interface AccessRecord {
@@ -67,14 +67,14 @@ export interface AccessRecord {
 ```
 </details>
 
-2. Create a new function in the RestService to retrieve all access records for the current date. The endpoint to call is /api/logs/{date}?all=true where the date is provided in the format yyyy-MM-dd. 
+2. Create a new function in the RestService to retrieve all access records for the current date. The endpoint to call is `/api/logs/{date}?all=true` where the date is provided in the format yyyy-MM-dd. 
 
 <details>
 <summary>
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   getAccessLogs(date: Date) : Observable<AccessRecord[]> {
     const formattedDate = date.toISOString().split('T')[0]; // Format date as yyyy-MM-dd
     return this.httpClient.get<AccessRecord[]>(`${this.serverUrl}/api/logs/${formattedDate}?all=true`);
@@ -94,7 +94,7 @@ ng g c who-is-in-the-building
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 export class WhoIsInTheBuildingComponent implements OnInit {
 
   constructor(private restService: RestService) { }
@@ -121,7 +121,7 @@ All entries in the map where the status is true = users in the building
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 ngOnInit(): void {
    this.restService.getAccessLogs(new Date()).subscribe(data => {
       const buildingRecords = data.filter(record => record.building.name === this.selectedBuilding );
@@ -145,7 +145,7 @@ ngOnInit(): void {
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <h2>People in {{ selectedBuilding }} right now</h2>
 
 <table>

@@ -49,7 +49,7 @@ ng serve
 
 1. Add the provideHttpClient() method call to the providers list in app.config.ts
 
-```
+```typescript
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
     provideHttpClient()
@@ -70,14 +70,14 @@ ng g s rest
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 export interface Building {
   id: number;
   name: string;  
 }
 ```
 
-```
+```typescript
 export class RestService {
 
   constructor(private httpClient: HttpClient) { }
@@ -97,7 +97,7 @@ export class RestService {
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   constructor(private restService: RestService) {}
 
   ngOnInit(): void {
@@ -119,7 +119,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   buildings = signal<Building[]>([]);
 ```
 </details>
@@ -131,7 +131,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   ngOnInit(): void {
     this.restService.getBuildings().subscribe(data => {
       this.buildings.set(data);
@@ -146,7 +146,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <h1>Buildings</h1>
 
 <ul>

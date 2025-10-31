@@ -13,7 +13,7 @@ In this lab we will pass data from a parent component to a child component using
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   @Input() isTopSong: boolean = false;
 ```
 </details>
@@ -25,7 +25,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   @ViewChild('songComponent1')
   songComponent1! : SongComponent;
 
@@ -44,7 +44,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <ul>
     <app-song [song]="song1" (voteUp)="vote($event)" #songComponent1></app-song>
     <app-song [song]="song2" (voteUp)="vote($event)" #songComponent2></app-song>
@@ -60,7 +60,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   vote(id :number) : void {
     if (id == 1) {
       this.song1.votes += 1;
@@ -90,14 +90,14 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <li> 
     <span *ngIf="isTopSong">TOP SONG!</span>
     ...
 </li>
 ```
 
-```
+```typescript
 @Component({
   selector: 'app-song',
   standalone: true,
@@ -119,7 +119,7 @@ We are now going to convert our 3 separate songs into an array of songs and loop
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 songs : SongInterface[]  = [
     {id: 1, title:"Billie Jean", artist: "Michael Jackson", dateReleased: new Date(1983,1,2), price: 10.99, votes:0},
     {id: 2, title:"I don't wanna miss a thing", artist: "Aerosmith", dateReleased: new Date(1998,5,2), price: 9.99, votes:0},
@@ -135,7 +135,7 @@ songs : SongInterface[]  = [
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 @ViewChildren(SongComponent)
   songComponents!: SongComponent[];
 ```
@@ -148,7 +148,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   vote(id :number) : void {
     this.songs.find(song => song.id === id)!.votes += 1;
 
@@ -167,7 +167,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
   <ul>
     <app-song *ngFor="let song of songs" [song]="song" (voteUp)="vote($event)" ></app-song>
 </ul>

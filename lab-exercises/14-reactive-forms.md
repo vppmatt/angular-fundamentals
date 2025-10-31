@@ -1,4 +1,4 @@
-# Lab 14 - Reactive forms
+# Lab 14 - Reactive Forms
 
 ## Intro
 
@@ -20,7 +20,7 @@ In this lab we will create a form to allow a building name to be edited
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 import { Component, OnInit, signal } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Building } from '../data/Building';
@@ -48,7 +48,7 @@ export class EditBuildingComponent implements OnInit {
 }
 ```
 
-```
+```html
 <h2>Select the building to edit</h2>
 <ul>
     <li *ngFor="let building of buildings()">
@@ -67,7 +67,7 @@ export class EditBuildingComponent implements OnInit {
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   selectedBuildingId : number | null = null;
 
   handleClick(id :number) {
@@ -76,14 +76,14 @@ Click here to see the sample solution
   }
 ```
 
-```
+```html
 <button (click)="handleClick(building.id)"  >edit</button>
 ```
 </details>
 
 3. Create an edit form on the HTML - only show this if there is a selected building. 
 
-```
+```html
 <form *ngIf="selectedBuildingId">
     
     <input type="hidden" id="id" name="id"/>
@@ -105,7 +105,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
    editForm = new FormGroup({
     id: new FormControl('id'),
     name: new FormControl('name'),
@@ -120,7 +120,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   handleClick(id :number) {
     this.selectedBuildingId = id;
     this.editForm.patchValue({
@@ -138,13 +138,13 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   onSubmit() {
     console.log("Submitting form", this.editForm.value);
   }
 ```
 
-```
+```html
 <form *ngIf="selectedBuildingId" [formGroup]="editForm" (submit)="onSubmit()">
 ```
 </details>

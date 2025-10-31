@@ -1,4 +1,4 @@
-# Lab 15 - Post and put
+# Lab 15 - Post, Put and Delete
 
 ## Intro
 
@@ -13,7 +13,7 @@ In this lab we will implement post and put rest methods
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   addUser(user: {firstname: string, surname: string}) : Observable<{id: number, firstname: string, surname: string}> {
     return this.httpClient.post<{id: number, firstname: string, surname: string}>(`${this.serverUrl}/api/user`, user);
   }
@@ -26,7 +26,7 @@ Click here to see the sample solution
 <summary>
 Click here to see the sample solution
 </summary>
-```
+```typescript
 export class NewUserComponent {
 
   constructor(private restService: RestService) { }
@@ -54,7 +54,7 @@ export class NewUserComponent {
 }
 ```
 
-```
+```html
 <h2>New User</h2>
 
 <app-spinner *ngIf="saving"></app-spinner>
@@ -82,7 +82,7 @@ export class NewUserComponent {
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   editBuilding(building : Building) : Observable<Building> {
     return this.httpClient.put<Building>(`${this.serverUrl}/api/building/${building.id}`, building);
   }
@@ -96,7 +96,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 import { Component, OnInit, signal } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Building } from '../data/Building';
@@ -168,7 +168,7 @@ export class EditBuildingComponent implements OnInit {
 }
 ```
 
-```
+```html
 <h2>Select the building to edit</h2>
 <ul>
     <li *ngFor="let building of buildings()">

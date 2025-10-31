@@ -1,4 +1,4 @@
-# Lab 12 - Error handling and slow connections
+# Lab 12 - Error Handling and Slow Connections
 
 ## Intro
 
@@ -14,7 +14,7 @@ ng g c spinner
 
 2. Set the HTML for this component to:
 
-```
+```html
 <svg width="48" height="48" viewBox="0 0 48 48" aria-label="Loading..." role="img">
     <circle
         cx="24"
@@ -53,7 +53,7 @@ ng g c spinner
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 import { Component, OnInit, signal } from '@angular/core';
 import { RestService } from '../rest.service';
 import { AccessRecord } from '../data/AccessRecord';
@@ -119,7 +119,7 @@ export class WhoIsInTheBuildingComponent implements OnInit {
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 errorMessage = "";
 
 ngOnInit(): void {

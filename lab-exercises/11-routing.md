@@ -6,7 +6,7 @@ In this lab we will create a menu and basic navigation.
 
 ## 1. Create the basic routing
 
-1. Create the following components to be displayed on the different pages on our applicaiton. Put some suitable text onto the home page and the not-found page. The emergency page will contain the content currently in the app component so you can move this to that new page component, together with the relevant typescript. 
+1. Create the following components to be displayed on the different pages on our application. Put some suitable text onto the home page and the not-found page. The emergency page will contain the content currently in the app component so you can move this to that new page component, together with the relevant typescript. 
 
 `
 ng g c home-page
@@ -21,7 +21,7 @@ ng g c not-found-page
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { EmergencyPageComponent } from './emergency-page/emergency-page.component';
@@ -44,7 +44,7 @@ Don't forget to import RouterLink into the component's imports section.
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <h1>Building Management App</h1>
  <nav>
     <a routerLink="">Home</a>
@@ -61,7 +61,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <app-menu></app-menu>
 <router-outlet></router-outlet>
 ```
@@ -80,7 +80,7 @@ In this section we will create routes that contain the building name, to allow t
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 export const routes: Routes = [
     {path: "" , component: HomePageComponent},
     {path : "emergency" , component: EmergencyPageComponent},
@@ -98,7 +98,7 @@ export const routes: Routes = [
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
 export class WhoIsInTheBuildingComponent implements OnInit {
 
   selectedBuilding = "";
@@ -148,7 +148,7 @@ At this point you can test this by visiting the following URLs in your browser:
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <select (change)="handleChange($event)">
     <option value="">-- Select a building --</option>
     <option *ngFor="let building of buildings()" [value]="building.name">
@@ -160,7 +160,7 @@ Click here to see the sample solution
 
 2. Create the function to handle the building change - when this should be used to change the URL. You'll need to import the Router object.
 
-```
+```typescript
 constructor(...  private router : Router) { }
 
 handleChange(event: any) {

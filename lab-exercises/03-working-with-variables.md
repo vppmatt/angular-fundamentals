@@ -1,4 +1,4 @@
-# Lab 3 - Working with variables
+# Lab 3 - Working With Variables
 
 ## Intro
 
@@ -10,7 +10,7 @@ In this lab we will define and use an interface for a custom data type, and see 
 
 2. Inside this folder create a file called `SongInterface.ts` with the following content;
  
-```
+```typescript
 export interface SongInterface {
     id : number
     title: string
@@ -31,7 +31,7 @@ export interface SongInterface {
 Click here to see a sample solution
 </summary>
 
-```
+```typescript
 export class SongListComponent {
     song1 : SongInterface = {id: 1, title:"Billie Jean", artist: "Michael Jackson", dateReleased: new Date(1983,1,2), price: 10.99};
 
@@ -52,7 +52,7 @@ export class SongListComponent {
 Click here for a sample solution
 </summary>
 
-```
+```typescript
 export class SongComponent {
   @Input({required: true}) song!: SongInterface;
 
@@ -68,7 +68,7 @@ export class SongComponent {
 Click here for a sample solution
 </summary>
 
-```
+```html
 <li> 
     ID: {{song.id}}  TITLE: {{song.title}}  ARTIST: {{song.artist}}
 </li>
@@ -86,7 +86,7 @@ Click here for a sample solution
 Click here for a sample solution
 </summary>
 
-```
+```html
 <ul>
     <app-song [song]="song1"></app-song>
     <app-song [song]="song2"></app-song>

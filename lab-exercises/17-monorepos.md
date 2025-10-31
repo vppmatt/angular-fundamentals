@@ -8,7 +8,9 @@ In this lab we will create a mono-repo, with a shared library and then see how t
 
 1. Run this command:
 
-`npx create-nx-workspace@latest building-project`
+`
+npx create-nx-workspace@latest building-project
+`
 
 2. Make the following responses to each question:
 
@@ -28,15 +30,19 @@ In this lab we will create a mono-repo, with a shared library and then see how t
 
 1. CD into the project folder, then create a new library with
 
-`npx nx g @nx/angular:lib --name=ui-components --directory=shared --buildable`
+`
+npx nx g @nx/angular:lib --name=ui-components --directory=shared --buildable
+`
 
 Choose Jest for testing.
 
 ## 3. Create an application
 
-1. create a new applicaiton with
+1. create a new application with
 
-`npx nx g @nx/angular:app sample-app`
+`
+npx nx g @nx/angular:app sample-app
+`
 
 - choose esbuild as the build type
 - say No to server side rendering
@@ -51,14 +57,16 @@ Choose Jest for testing.
 
 2. Run this command to create a footer component in the ui-components library:
 
-`nx g @nx/angular:component --name=footer 
---path=shared/src/lib/ui-components/footer --standalone --export --selector=bp-footer`
+`
+nx g @nx/angular:component --name=footer 
+--path=shared/src/lib/ui-components/footer --standalone --export --selector=bp-footer
+`
 
 When prompted to install the nx console, say yes.
 
 3. Add some content to the footer HTML:
 
-```
+```html
 <footer class="footer">
   <div class="container">
     <p>&copy; {{ year }} Building Project.  All rights reserved.</p>
@@ -67,13 +75,13 @@ When prompted to install the nx console, say yes.
 ```
 4. In the fotter typescript file add in the year field
 
-```
+```typescript
 year = new Date().getFullYear();
 ```
 
 5. In the footer css file define some styling:
 
-```
+```css
 .footer {
   padding: 1rem;
   border-top: 1px solid rgba(0,0,0,.08);
@@ -91,7 +99,7 @@ year = new Date().getFullYear();
 
 1. In the sample app, add the imports of the Footer component into the app.ts file
 
-```
+```typescript
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcome } from './nx-welcome';
@@ -111,11 +119,13 @@ export class App {
 
 2. Place the component on the page 
 
-```
+```html
 <h1>This is a sample app</h1>
 <bp-footer></bp-footer> 
 ```
 
-3. Test this in your browser - if the applicaiton isn't running start it with:
+3. Test this in your browser - if the application isn't running start it with:
 
-`npx nx serve sample-app`
+`
+npx nx serve sample-app
+`

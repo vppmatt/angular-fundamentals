@@ -8,7 +8,9 @@ In this lab we will complete some basic UI testing
 
 1. Stop the application running and start the testing process with
 
-`ng test`
+`
+ng test
+`
 
 2. There will be a lot of failing tests as the test files have been automatically created as we have been building our application. By default these test files will look for content that we have removed. 
 
@@ -16,7 +18,7 @@ Go through each of the test files and fix or remove the failing tests. The main 
 
 - If the test fails due to "NullInjectorError: No provider for ActivatedRoute!" then add the following to the testbed configuration part:
 
-```
+```typescript
 beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ComponentName],
@@ -26,7 +28,7 @@ beforeEach(async () => {
 
 - If the test fails due to "NullInjectorError: No provider for HttpClient!" then add the following to the testbed configuration part:
 
-```
+```typescript
 beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ComponentName],
@@ -36,7 +38,7 @@ beforeEach(async () => {
 
 - In the app component there is a test that the title should say "building-manager" -this is not currently displayed on the screen. You can fix this by adding the following to the top of the app-component's HTML
 
-```
+```html
 <h1>{{ title }}</h1>
 ```
 
@@ -51,7 +53,7 @@ and change the test to look for the title, without "hello" in front!
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   it('all links should appear', () => {
     const anchorElements = fixture.nativeElement.querySelectorAll('a');
     expect(anchorElements.length).toBe(4);
@@ -63,7 +65,7 @@ Click here to see the sample solution
 
 1. For the new user component, create a test that checks that if a valid user has been entered into the form fields, and the submit button is clicked, the http call is made.
 
-```
+```typescript
     it('check that save method is called', () => {
 
     const httpTesting = TestBed.inject(HttpTestingController);

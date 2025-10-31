@@ -34,7 +34,7 @@ Click here to view a sample of the solution
 </summary>
 
 **app.component.ts**
-```
+```typescript
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SongListComponent } from './song-list/song-list.component';
@@ -53,7 +53,7 @@ export class AppComponent {
 
 4. Display the song list on the web page by replacing the content of app.component.html to:
 
-```
+```html
 <div>
   <h1>Welcome to the Song Library</h1>
   <app-song-list></app-song-list>
@@ -86,7 +86,7 @@ Click here to view the sample solution
 </summary>
 
 **song-list-component.html**
-```
+```html
 <p>song-list works!</p>
 
 <app-song></app-song>
@@ -95,7 +95,7 @@ Click here to view the sample solution
 ```
 
 **song-list.component.ts**
-```
+```typescript
 import { Component } from '@angular/core';
 import { SongComponent } from '../song/song.component';
 

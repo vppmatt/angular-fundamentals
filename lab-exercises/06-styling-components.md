@@ -13,7 +13,7 @@ In this lab we will see how to apply styling to components
 Click here to see the sample solution
 </summary>
 
-```
+```html
   <li [ngStyle]="{color : isTopSong ? 'red' : 'blue'}" > 
   ...
   </li>
@@ -24,7 +24,7 @@ Click here to see the sample solution
 
 3. In the song list component, create a class level variable to define a style for the unordered list:
 
-```
+```typescript
   ulStyle = {
     'list-style-type': 'none',
     padding: '0'
@@ -38,7 +38,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <ul [ngStyle]="ulStyle">
     <app-song *ngFor="let song of songs" [song]="song" (voteUp)="vote($event)" ></app-song>
 </ul>
@@ -47,7 +47,7 @@ Click here to see the sample solution
 
 4. In the App component's css file, define 2 css classes for dark and light mode:
 
-```
+```css
 .dark-mode {
     background-color: #333;
     color: white;
@@ -66,7 +66,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
    mode = 'light';
 
   switchMode() {
@@ -82,7 +82,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <button (click)="switchMode()">Switch to {{mode === 'light-mode' ? 'dark' : 'light'}} mode</button>
 ```
 </details>
@@ -111,7 +111,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <li [ngStyle]="{color : isTopSong ? 'red' : 'blue'}" > 
     <span *ngIf="isTopSong"><b>TOP SONG!</b></span>
     ID: {{song.id}}  TITLE: {{song.title}}  ARTIST: {{song.artist}} VOTES: {{song.votes}}

@@ -1,4 +1,4 @@
-# Lab 13 - Template Driven forms
+# Lab 13 - Template Driven Forms
 
 ## Intro
 
@@ -14,7 +14,7 @@ In this lab we will create a form to allow a user to be added to the system
 
 1. In the HTML create the following HTML form:
 
-```
+```html
 <h2>New User</h2>
 
 <form>
@@ -30,7 +30,7 @@ In this lab we will create a form to allow a user to be added to the system
 
 and create some basic css styling:
 
-```
+```css
 form {
     display: flex;
     flex-direction: column;
@@ -53,7 +53,7 @@ input {
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   firstname: string = '';
   surname: string = '';
 ```
@@ -66,7 +66,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
     <input id="firstname" name="firstname" type="text" [(ngModel)]="firstname" />
 
     ...
@@ -82,7 +82,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```typescript
   onSubmit() {
     console.log(`New user created: ${this.firstname} ${this.surname}`);
   }
@@ -96,7 +96,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
 <form (submit)="onSubmit()">
 ```
 </details>
@@ -112,7 +112,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```html
     <input id="firstname" name="firstname" type="text" [(ngModel)]="firstname" required />
 
     ...
@@ -128,7 +128,7 @@ Click here to see the sample solution
 Click here to see the sample solution
 </summary>
 
-```
+```css
 input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
