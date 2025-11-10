@@ -1,11 +1,14 @@
 <h2>Select the building to edit</h2>
 <ul>
-    <li *ngFor="let building of buildings()">
+    @for(building of buildings(), track: $index) {
+    <li>
         {{ building.name }} <button (click)="handleClick(building.id)"  >edit</button>
     </li>
+    }
+    
 </ul>
-
-<form *ngIf="selectedBuildingId" [formGroup]="editForm" (submit)="onSubmit()">
+@if(selectedBuildingId) {
+<form [formGroup]="editForm" (submit)="onSubmit()">
     
     <input type="hidden" id="id" name="id" formControlName="id" />
 
@@ -17,3 +20,4 @@
     <button>Save Changes</button>
 
 </form>
+}

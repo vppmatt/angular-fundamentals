@@ -1,14 +1,13 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { RestService } from '../rest.service';
 import { AccessRecord } from '../data/AccessRecord';
-import { NgFor, NgIf } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-who-is-in-the-building',
   standalone: true,
-  imports: [NgFor, SpinnerComponent, NgIf],
+  imports: [SpinnerComponent],
   templateUrl: './who-is-in-the-building.component.html',
   styleUrl: './who-is-in-the-building.component.css'
 })

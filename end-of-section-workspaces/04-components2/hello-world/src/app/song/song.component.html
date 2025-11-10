@@ -1,5 +1,7 @@
 <li [ngStyle]="{color : isTopSong ? 'red' : 'blue'}" > 
-    <span *ngIf="isTopSong"><b>TOP SONG!</b></span>
+    @if(isTopSong) {
+        <b>TOP SONG!</b>
+    }
     ID: {{song.id}}  TITLE: {{song.title}}  ARTIST: {{song.artist}} VOTES: {{song.votes}}
     PRICE: {{song.price | currency:'EUR': 'symbol':'1.2-2'}} 
     DATE RELEASED: {{song.dateReleased | date:'dd/MM/yyyy'}}

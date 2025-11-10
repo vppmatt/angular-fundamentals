@@ -24,12 +24,11 @@ Click here to see the sample solution
 import { Component, OnInit, signal } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Building } from '../data/Building';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-edit-building',
   standalone: true,
-  imports: [NgFor],
+  imports: [],
   templateUrl: './edit-building.component.html',
   styleUrl: './edit-building.component.css'
 })
@@ -51,9 +50,11 @@ export class EditBuildingComponent implements OnInit {
 ```html
 <h2>Select the building to edit</h2>
 <ul>
-    <li *ngFor="let building of buildings()">
+@for(building of buildings(), track: $index) {
+    <li>
         {{ building.name }} <button>edit</button>
     </li>
+    }
 </ul>
 ```
 
@@ -84,7 +85,8 @@ Click here to see the sample solution
 3. Create an edit form on the HTML - only show this if there is a selected building. 
 
 ```html
-<form *ngIf="selectedBuildingId">
+@if(selectedBuildingId) {
+<form >
     
     <input type="hidden" id="id" name="id"/>
 
@@ -96,6 +98,7 @@ Click here to see the sample solution
     <button>Save Changes</button>
 
 </form>
+}
 ```
 
 4. Create a FormGroup to represent the building. Ensure you import the ReactiveFormsModule into the component
@@ -145,7 +148,7 @@ Click here to see the sample solution
 ```
 
 ```html
-<form *ngIf="selectedBuildingId" [formGroup]="editForm" (submit)="onSubmit()">
+<form  [formGroup]="editForm" (submit)="onSubmit()">
 ```
 </details>
 

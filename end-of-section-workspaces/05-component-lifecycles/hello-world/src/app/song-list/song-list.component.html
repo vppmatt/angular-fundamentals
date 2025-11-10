@@ -1,3 +1,5 @@
 <ul [ngStyle]="ulStyle">
-    <app-song *ngFor="let song of songs" [song]="song" (voteUp)="vote($event)" ></app-song>
+    @for(song of songs; track: song.id) {
+       <app-song [song]="song" (voteUp)="vote($event)" ></app-song>
+    }
 </ul>

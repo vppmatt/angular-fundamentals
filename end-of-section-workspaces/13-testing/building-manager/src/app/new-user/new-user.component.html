@@ -1,6 +1,9 @@
 <h2>New User</h2>
 
-<app-spinner *ngIf="saving"></app-spinner>
+@if(isLoading) {
+    <app-spinner></app-spinner>
+}
+
 
 <form (submit)="onSubmit()">
     <label for="firstname">First name:</label>
@@ -12,4 +15,6 @@
     <button type="submit">Add User</button> 
 </form>
 
-<p *ngIf="message">{{ message }}</p>
+@if(message) {
+<p>{{ message }}</p>
+}

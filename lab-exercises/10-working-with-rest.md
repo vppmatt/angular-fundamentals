@@ -156,10 +156,12 @@ Click here to see the sample solution
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let record of accessLogs()">
+    @for(record of accesslogs(), track: $index) {
+    <tr>
       <td>{{ record.user.firstname }} {{ record.user.surname }}</td>
       <td>{{ record.time }}</td>
     </tr>
+    }
   </tbody>
 </table>  
 ```

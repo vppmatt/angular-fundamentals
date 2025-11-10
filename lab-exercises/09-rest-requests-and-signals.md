@@ -139,7 +139,7 @@ Click here to see the sample solution
 ```
 </details>
 
-3. Display the list of buildings as an unordered list in the HTML (don't forget to import NgFor!)
+3. Display the list of buildings as an unordered list in the HTML 
 
 <details>
 <summary>
@@ -150,9 +150,11 @@ Click here to see the sample solution
 <h1>Buildings</h1>
 
 <ul>
-    <li *ngFor="let building of buildings()">
-        {{ building.name }} 
+    @for(building of buildings(), track: $index) {
+    <li>
+        {{ building.name }}
     </li>
+    }
 </ul>
 ```
 </details>

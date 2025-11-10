@@ -81,9 +81,9 @@ Click here to see the sample solution
 </details>
 
 
-## 2. Structural directives - ngIf
+## 2. Conditions - @if
 
-1. In the song component's html, display the words "TOP SONG!" if this is a top song. Don't forget to import NgIf into the typescript file.
+1. In the song component's html, display the words "TOP SONG!" if this is a top song. 
 
 <details>
 <summary>
@@ -92,23 +92,17 @@ Click here to see the sample solution
 
 ```html
 <li> 
-    <span *ngIf="isTopSong">TOP SONG!</span>
-    ...
+    @if(isTopSong) {
+       TOP SONG!
+    }
 </li>
 ```
 
-```typescript
-@Component({
-  selector: 'app-song',
-  standalone: true,
-  imports: [NgIf],
-  ...
-```
 </details>
 
 2. Test the application in the browser!
 
-## 3. Structural directives - ngFor
+## 3. Looping - @for
 
 We are now going to convert our 3 separate songs into an array of songs and loop through the array.
 
@@ -160,7 +154,7 @@ Click here to see the sample solution
 ```
 </details>
 
-4. In the song-list html, replace the 3 app-song components with the array using *ngFor - don't forget to import NgFor into the typescript.
+4. In the song-list html, replace the 3 app-song components with the array using @for.
 
 <details>
 <summary>
@@ -169,7 +163,9 @@ Click here to see the sample solution
 
 ```html
   <ul>
-    <app-song *ngFor="let song of songs" [song]="song" (voteUp)="vote($event)" ></app-song>
+    @for(song of songs; track: song.id) {
+        <app-song [song]="song" (voteUp)="vote($event)" ></app-song>
+    }
 </ul>
 ```
 </details>

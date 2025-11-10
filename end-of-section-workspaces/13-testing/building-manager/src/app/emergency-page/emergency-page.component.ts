@@ -1,6 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { WhoIsInTheBuildingComponent } from '../who-is-in-the-building/who-is-in-the-building.component';
-import { NgFor, NgIf } from '@angular/common';
 import { RestService } from '../rest.service';
 import { Building } from '../data/Building';
 import { Router } from '@angular/router';
@@ -9,7 +8,7 @@ import { SpinnerComponent } from '../spinner/spinner.component';
 @Component({
   selector: 'app-emergency-page',
   standalone: true,
-  imports: [WhoIsInTheBuildingComponent, NgFor, NgIf, SpinnerComponent],
+  imports: [WhoIsInTheBuildingComponent, SpinnerComponent],
   templateUrl: './emergency-page.component.html',
   styleUrl: './emergency-page.component.css'
 })

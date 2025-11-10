@@ -57,7 +57,10 @@ export class NewUserComponent {
 ```html
 <h2>New User</h2>
 
-<app-spinner *ngIf="saving"></app-spinner>
+@if(saving) {
+    <app-spinner></app-spinner>
+}
+
 
 <form (submit)="onSubmit()">
     <label for="firstname">First name:</label>
@@ -69,7 +72,11 @@ export class NewUserComponent {
     <button type="submit">Add User</button> 
 </form>
 
-<p *ngIf="message">{{ message }}</p>
+@if(message) {
+<p>
+    {{ message }}
+</p>
+}
 ```
 </details>
 
@@ -100,14 +107,13 @@ Click here to see the sample solution
 import { Component, OnInit, signal } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Building } from '../data/Building';
-import { NgFor, NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-edit-building',
   standalone: true,
-  imports: [NgFor, NgIf, ReactiveFormsModule, SpinnerComponent],
+  imports: [ ReactiveFormsModule, SpinnerComponent],
   templateUrl: './edit-building.component.html',
   styleUrl: './edit-building.component.css'
 })
@@ -171,12 +177,15 @@ export class EditBuildingComponent implements OnInit {
 ```html
 <h2>Select the building to edit</h2>
 <ul>
-    <li *ngFor="let building of buildings()">
+    @for(building of buildings(), track: $index) {
+    <li>
         {{ building.name }} <button (click)="handleClick(building.id)"  >edit</button>
     </li>
+    }
 </ul>
 
-<form *ngIf="selectedBuildingId" [formGroup]="editForm" (submit)="onSubmit()">
+@if(selectedBuildingId) {
+<form [formGroup]="editForm" (submit)="onSubmit()">
     
     <input type="hidden" id="id" name="id" formControlName="id" />
 
@@ -188,7 +197,11 @@ export class EditBuildingComponent implements OnInit {
     <button>Save Changes</button>
 
 </form>
-<app-spinner *ngIf="saving"></app-spinner>
+}
+@if(saving) {
+    <app-spinner></app-spinner>
+}
+
 ```
 </details>
 

@@ -1,6 +1,11 @@
-<h2 *ngIf="selectedBuilding"  >People in {{ selectedBuilding }} right now</h2>
-<app-spinner *ngIf="isLoading"></app-spinner>
-<table *ngIf="selectedBuilding && !isLoading">
+@if(selectedBuilding) {
+  <h2>People in {{ selectedBuilding }} right now</h2>
+}
+@if(isLoading) {
+    <app-spinner></app-spinner>
+}
+@if(selectedBuilding && !isLoading) {
+  <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -8,9 +13,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let record of accessLogs()">
+    @for(record of accessLogs(), track: $index) {
+    <tr>
       <td>{{ record.user.firstname }} {{ record.user.surname }}</td>
       <td>{{ record.time }}</td>
     </tr>
+  }
   </tbody>
 </table>
+}

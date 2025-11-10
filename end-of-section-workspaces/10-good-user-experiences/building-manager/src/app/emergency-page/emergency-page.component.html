@@ -1,16 +1,28 @@
 <h1>Buildings</h1>
 
-<app-spinner *ngIf="isLoading"></app-spinner>
+@if(isLoading) {
+    <app-spinner></app-spinner>
+}
 
-<div *ngIf="errorMessage" class="error">
-    {{ errorMessage }}
-</div>
+@if(errorMessage) {
+    <div class="error">
+        {{ errorMessage }}
+    </div>
+}
 
-<select *ngIf="!errorMessage && !isLoading" (change)="handleChange($event)">
+@if(!errorMessage && !isLoading) {
+<select (change)="handleChange($event)">
     <option value="">-- Select a building --</option>
-    <option *ngFor="let building of buildings()" [value]="building.name">
+    @for(building of buildings(), track: $index) {
+    <option [value]="building.name">
         {{ building.name }}
     </option>
+    }
 </select>
 
-<app-who-is-in-the-building *ngIf="!errorMessage && !isLoading"></app-who-is-in-the-building>
+}
+
+@if(!errorMessage && !isLoading) {
+   <app-who-is-in-the-building></app-who-is-in-the-building>
+}
+

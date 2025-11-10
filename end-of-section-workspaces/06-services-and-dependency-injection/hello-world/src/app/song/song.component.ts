@@ -1,12 +1,12 @@
 import { Component, Input, OnInit} from '@angular/core';
-import { CurrencyPipe, DatePipe, NgIf, NgStyle } from '@angular/common';
+import { CurrencyPipe, DatePipe, NgStyle } from '@angular/common';
 import { SongInterface } from '../data/SongInterface';
 import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-song',
   standalone: true,
-  imports: [NgIf, NgStyle, DatePipe, CurrencyPipe],
+  imports: [NgStyle, DatePipe, CurrencyPipe],
   templateUrl: './song.component.html',
   styleUrl: './song.component.css'
 })

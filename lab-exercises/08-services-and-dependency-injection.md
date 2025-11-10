@@ -96,7 +96,9 @@ Click here to see the sample solution
 
 ```html
 <ul [ngStyle]="ulStyle">
-    <app-song *ngFor="let song of dataService.getSongs()" [song]="song" (voteUp)="vote($event)" ></app-song>
+        @for(song of dataService.getSongs(); track: song.id) {
+        <app-song [song]="song" voteUp="vote($event)"></app-song>
+    }
 </ul>
 ```
 </details>
@@ -111,13 +113,13 @@ The song-list component should now look like this
 ```typescript
 import { Component, ViewChild, ViewChildren } from '@angular/core';
 import { SongComponent } from '../song/song.component';
-import { NgFor, NgStyle } from '@angular/common';
+import { NgStyle } from '@angular/common';
 import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-song-list',
   standalone: true,
-  imports: [SongComponent, NgFor, NgStyle],
+  imports: [SongComponent, NgStyle],
   templateUrl: './song-list.component.html',
   styleUrl: './song-list.component.css'
 })
@@ -136,7 +138,9 @@ export class SongListComponent {
 
 ```html
 <ul [ngStyle]="ulStyle">
-    <app-song *ngFor="let song of dataService.getSongs()" [song]="song" ></app-song>
+    @for(song of dataService.getSongs(); track: song.id) {
+        <app-song [song]="song" ></app-song>
+    }
 </ul>
 ```
 </details>
@@ -158,14 +162,14 @@ Click here to see the sample solution
 
 ```typescript
 import { Component, Input, OnInit} from '@angular/core';
-import { CurrencyPipe, DatePipe, NgIf, NgStyle } from '@angular/common';
+import { CurrencyPipe, DatePipe, NgStyle } from '@angular/common';
 import { SongInterface } from '../data/SongInterface';
 import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-song',
   standalone: true,
-  imports: [NgIf, NgStyle, DatePipe, CurrencyPipe],
+  imports: [NgStyle, DatePipe, CurrencyPipe],
   templateUrl: './song.component.html',
   styleUrl: './song.component.css'
 })

@@ -151,9 +151,11 @@ Click here to see the sample solution
 ```html
 <select (change)="handleChange($event)">
     <option value="">-- Select a building --</option>
-    <option *ngFor="let building of buildings()" [value]="building.name">
+    @for(building of buildings(), track: $index) {
+    <option [value]="building.name">
         {{ building.name }}
     </option>
+    }
 </select>
 ```
 </details>

@@ -1,14 +1,13 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Building } from '../data/Building';
-import { NgFor, NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-edit-building',
   standalone: true,
-  imports: [NgFor, NgIf, ReactiveFormsModule, SpinnerComponent],
+  imports: [ReactiveFormsModule, SpinnerComponent],
   templateUrl: './edit-building.component.html',
   styleUrl: './edit-building.component.css'
 })

@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RestService } from '../rest.service';
 import { SpinnerComponent } from '../spinner/spinner.component';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-new-user',
   standalone: true,
-  imports: [FormsModule, SpinnerComponent, NgIf],
+  imports: [FormsModule, SpinnerComponent],
   templateUrl: './new-user.component.html',
   styleUrl: './new-user.component.css'
 })

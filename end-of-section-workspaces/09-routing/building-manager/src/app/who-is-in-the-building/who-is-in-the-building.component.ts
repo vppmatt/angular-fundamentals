@@ -1,13 +1,12 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { RestService } from '../rest.service';
 import { AccessRecord } from '../data/AccessRecord';
-import { NgFor } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-who-is-in-the-building',
   standalone: true,
-  imports: [NgFor],
+  imports: [],
   templateUrl: './who-is-in-the-building.component.html',
   styleUrl: './who-is-in-the-building.component.css'
 })

@@ -40,7 +40,9 @@ Click here to see the sample solution
 
 ```html
 <ul [ngStyle]="ulStyle">
-    <app-song *ngFor="let song of songs" [song]="song" (voteUp)="vote($event)" ></app-song>
+       @for(song of songs; track: song.id) {
+        <app-song [song]="song" [voteUp]="vote($event)"></app-song>
+    }
 </ul>
 ```
 </details>
@@ -113,7 +115,9 @@ Click here to see the sample solution
 
 ```html
 <li [ngStyle]="{color : isTopSong ? 'red' : 'blue'}" > 
-    <span *ngIf="isTopSong"><b>TOP SONG!</b></span>
+    @if(isTopSong) {
+     <b>TOP SONG!</b>
+    }
     ID: {{song.id}}  TITLE: {{song.title}}  ARTIST: {{song.artist}} VOTES: {{song.votes}}
     PRICE: {{song.price | currency:'EUR': 'symbol':'1.2-2'}} 
     DATE RELEASED: {{song.dateReleased | date:'dd/MM/yyyy'}}
