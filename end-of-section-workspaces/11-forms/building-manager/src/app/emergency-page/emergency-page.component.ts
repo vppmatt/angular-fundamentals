@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { WhoIsInTheBuildingComponent } from '../who-is-in-the-building/who-is-in-the-building.component';
 import { RestService } from '../rest.service';
 import { Building } from '../data/Building';
@@ -14,7 +14,8 @@ import { SpinnerComponent } from '../spinner/spinner.component';
 })
 export class EmergencyPageComponent implements OnInit {
 
-constructor(private restService: RestService, private router : Router) {}
+  private restService = inject(RestService);
+  private router = inject(Router);
 
   buildings = signal<Building[]>([]);
 

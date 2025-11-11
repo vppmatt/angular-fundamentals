@@ -73,7 +73,7 @@ export class DataService {
 
 ## 2. Inject and use the service in the song-list component
 
-1. In the song-list component, create a constructor to inject the data service. It must be made public as we will access it from the HTML.
+1. In the song-list component, inject the data service. It must be made public as we will access it from the HTML.
 
 <details>
 <summary>
@@ -81,9 +81,7 @@ Click here to see the sample solution
 </summary>
 
 ```typescript
-  constructor(public dataService: DataService) {
-   
-  }
+  public dataService = inject(DataService);
 ```
 </details>
 
@@ -125,8 +123,7 @@ import { DataService } from '../data.service';
 })
 export class SongListComponent {
 
-  constructor(public dataService: DataService) {   
-  }
+  public dataService = inject(DataService);
 
   ulStyle = {
     'list-style-type': 'none',
@@ -175,7 +172,7 @@ import { DataService } from '../data.service';
 })
 export class SongComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  private dataService = inject(DataService);
 
   @Input({required: true}) song!: SongInterface;
 

@@ -97,7 +97,7 @@ Click here to see the sample solution
 ```typescript
 export class WhoIsInTheBuildingComponent implements OnInit {
 
-  constructor(private restService: RestService) { }
+  private restService = inject(RestService);
 
   ngOnInit(): void {
    this.restService.getAccessLogs(new Date()).subscribe(data => {

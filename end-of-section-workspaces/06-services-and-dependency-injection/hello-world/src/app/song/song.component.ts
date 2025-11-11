@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit, inject} from '@angular/core';
 import { CurrencyPipe, DatePipe, NgStyle } from '@angular/common';
 import { SongInterface } from '../data/SongInterface';
 import { DataService } from '../data.service';
@@ -12,7 +12,7 @@ import { DataService } from '../data.service';
 })
 export class SongComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  private dataService = inject(DataService);
 
   @Input({required: true}) song!: SongInterface;
 

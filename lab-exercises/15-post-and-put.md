@@ -29,7 +29,7 @@ Click here to see the sample solution
 ```typescript
 export class NewUserComponent {
 
-  constructor(private restService: RestService) { }
+  private restService = inject(RestService);
 
   firstname: string = '';
   surname: string = '';
@@ -104,7 +104,7 @@ Click here to see the sample solution
 </summary>
 
 ```typescript
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Building } from '../data/Building';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -124,7 +124,7 @@ export class EditBuildingComponent implements OnInit {
   saving : boolean = false;
   message : string = "";
 
-  constructor(private restService : RestService) { }
+  private restService = inject(RestService);
 
   selectedBuildingId : number | null = null;
 

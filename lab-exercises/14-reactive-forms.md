@@ -21,7 +21,7 @@ Click here to see the sample solution
 </summary>
 
 ```typescript
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { RestService } from '../rest.service';
 import { Building } from '../data/Building';
 
@@ -36,7 +36,7 @@ export class EditBuildingComponent implements OnInit {
 
   buildings = signal<Building[]>([]);
 
-  constructor(private restService : RestService) { }
+  private restService = inject(RestService);
 
   ngOnInit(): void {
     this.restService.getBuildings().subscribe(data => {

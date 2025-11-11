@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Building } from './data/Building';
 
@@ -8,7 +8,7 @@ import { Building } from './data/Building';
 })
 export class RestService {
 
-  constructor(private httpClient: HttpClient) { }
+  private httpClient = inject(HttpClient);
 
   getBuildings() : Observable<Building[]> {
     return this.httpClient.get<Building[]>('http://localhost:8080/api/building');

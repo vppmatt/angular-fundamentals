@@ -74,7 +74,8 @@ export class WhoIsInTheBuildingComponent implements OnInit {
 
   accessLogs = signal<AccessRecord[]>([]);
 
-  constructor(private restService: RestService, private route: ActivatedRoute) { }
+  private restService = inject(RestService);
+  private route = inject(ActivatedRoute);
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {

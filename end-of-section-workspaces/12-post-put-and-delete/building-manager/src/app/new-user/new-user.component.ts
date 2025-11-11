@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RestService } from '../rest.service';
 import { SpinnerComponent } from '../spinner/spinner.component';
@@ -12,7 +12,7 @@ import { SpinnerComponent } from '../spinner/spinner.component';
 })
 export class NewUserComponent {
 
-  constructor(private restService: RestService) { }
+  private restService = inject(RestService);
 
   firstname: string = '';
   surname: string = '';

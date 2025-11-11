@@ -105,7 +105,8 @@ export class WhoIsInTheBuildingComponent implements OnInit {
 
   accessLogs = signal<AccessRecord[]>([]);
 
-  constructor(private restService: RestService, private route: ActivatedRoute) { }
+  private restService = inject(RestService);
+  private route = inject(ActivatedRoute);
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -163,7 +164,7 @@ Click here to see the sample solution
 2. Create the function to handle the building change - when this should be used to change the URL. You'll need to import the Router object.
 
 ```typescript
-constructor(...  private router : Router) { }
+private router = inject(Router);
 
 handleChange(event: any) {
     const building = event.target.value;

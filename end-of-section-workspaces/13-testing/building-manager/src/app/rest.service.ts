@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Building } from './data/Building';
 import { environment } from '../environments/environment';
@@ -10,7 +10,7 @@ import { AccessRecord } from './data/AccessRecord';
 })
 export class RestService {
 
-  constructor(private httpClient: HttpClient) { }
+  private httpClient = inject(HttpClient);
 
   serverUrl = environment.serverUrl;
 

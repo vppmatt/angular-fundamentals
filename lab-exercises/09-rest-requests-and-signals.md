@@ -80,7 +80,7 @@ export interface Building {
 ```typescript
 export class RestService {
 
-  constructor(private httpClient: HttpClient) { }
+  private httpClient = inject(HttpClient);
 
   getBuildings() : Observable<Building[]> {
     return this.httpClient.get<Building[]>('http://localhost:8080/api/building');
@@ -98,7 +98,7 @@ Click here to see the sample solution
 </summary>
 
 ```typescript
-  constructor(private restService: RestService) {}
+  private restService = inject(RestService);
 
   ngOnInit(): void {
     this.restService.getBuildings().subscribe(buildings => {

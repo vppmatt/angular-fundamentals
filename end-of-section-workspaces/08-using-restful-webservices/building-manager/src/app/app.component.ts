@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RestService } from './rest.service';
 import { Building } from './data/Building';
@@ -14,7 +14,7 @@ import { WhoIsInTheBuildingComponent } from './who-is-in-the-building/who-is-in-
 export class AppComponent implements OnInit {
   title = 'building-manager';
 
-  constructor(private restService: RestService) {}
+  private restService = inject(RestService);
 
   buildings = signal<Building[]>([]);
 

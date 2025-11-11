@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { RestService } from '../rest.service';
 import { AccessRecord } from '../data/AccessRecord';
 
@@ -15,7 +15,7 @@ export class WhoIsInTheBuildingComponent implements OnInit {
 
   accessLogs= signal<AccessRecord[]>([]);
 
-  constructor(private restService: RestService) { }
+  private restService = inject(RestService);
 
   ngOnInit(): void {
    this.restService.getAccessLogs(new Date()).subscribe(data => {
