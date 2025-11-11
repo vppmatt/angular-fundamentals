@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    @for(record of accessLogs(), track: $index) {
+    @for(record of accessLogs(), track $index) {
     <tr>
       <td>{{ record.user.firstname }} {{ record.user.surname }}</td>
       <td>{{ record.time }}</td>

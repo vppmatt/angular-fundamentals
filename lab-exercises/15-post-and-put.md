@@ -177,7 +177,7 @@ export class EditBuildingComponent implements OnInit {
 ```html
 <h2>Select the building to edit</h2>
 <ul>
-    @for(building of buildings(), track: $index) {
+    @for(building of buildings(), track $index) {
     <li>
         {{ building.name }} <button (click)="handleClick(building.id)"  >edit</button>
     </li>

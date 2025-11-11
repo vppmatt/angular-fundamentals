@@ -96,7 +96,7 @@ Click here to see the sample solution
 
 ```html
 <ul [ngStyle]="ulStyle">
-        @for(song of dataService.getSongs(); track: song.id) {
+        @for(song of dataService.getSongs(); track song.id) {
         <app-song [song]="song" voteUp="vote($event)"></app-song>
     }
 </ul>
@@ -138,7 +138,7 @@ export class SongListComponent {
 
 ```html
 <ul [ngStyle]="ulStyle">
-    @for(song of dataService.getSongs(); track: song.id) {
+    @for(song of dataService.getSongs(); track song.id) {
         <app-song [song]="song" ></app-song>
     }
 </ul>

@@ -150,7 +150,7 @@ Click here to see the sample solution
 <h1>Buildings</h1>
 
 <ul>
-    @for(building of buildings(), track: $index) {
+    @for(building of buildings(), track $index) {
     <li>
         {{ building.name }}
     </li>

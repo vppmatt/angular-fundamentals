@@ -40,7 +40,7 @@ Click here to see the sample solution
 
 ```html
 <ul [ngStyle]="ulStyle">
-       @for(song of songs; track: song.id) {
+       @for(song of songs; track song.id) {
         <app-song [song]="song" [voteUp]="vote($event)"></app-song>
     }
 </ul>

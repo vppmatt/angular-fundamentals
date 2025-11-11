@@ -156,7 +156,7 @@ Click here to see the sample solution
     </tr>
   </thead>
   <tbody>
-    @for(record of accesslogs(), track: $index) {
+    @for(record of accesslogs(), track $index) {
     <tr>
       <td>{{ record.user.firstname }} {{ record.user.surname }}</td>
       <td>{{ record.time }}</td>
